@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Is Your Machine Learning Project Built to Reach Production?</title><meta name="description" content="A set of questions to ask yourself before a model becomes another notebook that never ships."><link rel="stylesheet" href="../style.css"></head><body><header><a href="../index.html">Foundry 5 Blog</a></header><main><h1>Is Your Machine Learning Project Built to Reach Production?</h1><p class="sub">A set of questions to ask yourself before a model becomes another notebook that never ships.</p><div class="date">29 October 2026</div><p><img src="https://images.unsplash.com/photo-1614508569207-3295ac89d75f?ixid=M3wxMDkwNDQyfDB8MXxzZWFyY2h8M3x8ZGF0YSUyMGNlbnRyZSUyMHNlcnZlciUyMHJvb218ZW58MXwwfHx8MTc5MzI3ODk4N3ww&amp;ixlib=rb-4.1.0&amp;w=1200&amp;h=630&amp;fit=crop&amp;crop=entropy&amp;q=80&amp;fm=jpg" alt="Is Your Machine Learning Project Built to Reach Production?"></p><p>The interesting failures in machine learning rarely happen during training. They happen in the gap between a promising result and a system that someone actually relies on.</p>
+<h3>Signs the project is still a notebook in disguise</h3>
+<ul>
+<li>The accuracy figure came from a clean sample, and nobody has looked hard at how that sample was built or whether it resembles live traffic.</li>
+<li>There is no agreed owner for the model once it is live. This matters more than people expect, because a model without an owner has no one to notice when it starts slipping.</li>
+<li>The data pipeline runs on someone's laptop, or as a series of manual steps that only two people understand.</li>
+<li>No one has written down what the model assumes about the world, or what should happen when those assumptions stop holding.</li>
+<li>Serving was treated as an afterthought. Batch or real-time, latency targets, versioning and rollback are all decisions that shape the build, not details to settle at the end.</li>
+<li>The evaluation metric is a leaderboard number rather than something tied to a decision the business actually makes.</li>
+</ul>
+<h3>Questions worth asking about the data</h3>
+<p>Machine learning is a data problem long before it becomes a modelling problem. Most of the risk sits here, and it is far cheaper to surface in week one than in month three.</p>
+<ul>
+<li>Do you have enough labelled examples, and were the labels produced consistently?</li>
+<li>Is there any chance of leakage between training and test data, where information from the future quietly informs the past?</li>
+<li>Does everyone agree on what the target variable actually is? Disagreement here tends to surface late and expensively.</li>
+<li>Could the data carry bias that would make the model unfair or useless for part of your users?</li>
+<li>If the data lives in-region for compliance reasons, does the whole pipeline respect that, or only the training step?</li>
+<li>Is there a baseline you can understand, so you know whether the model is genuinely adding something?</li>
+</ul>
+<h3>Signs nobody will notice when it degrades</h3>
+<p>A deployed model drifts. Fraud patterns shift, user behaviour shifts, catalogues change, and the world moves away from whatever the training data captured.</p>
+<ul>
+<li>There is no monitoring against live outcomes, only against the training metrics that looked good months ago.</li>
+<li>Performance decay would be discovered by a customer rather than by a dashboard.</li>
+<li>There is no alerting, so a slow decline goes unseen until it becomes a complaint.</li>
+<li>Retraining is undefined. Nobody knows how often it should happen, what triggers it, or who signs it off.</li>
+<li>The documentation describes how the model was built but not how it fails, which is the part the next engineer needs most.</li>
+</ul>
+<p>What a good result looks like is unglamorous: a model benchmarked against a baseline on a holdout set that reflects reality, wrapped in a scheduled pipeline, deployed with rollback available, monitored against live outcomes, and documented well enough that your own team can take it over. The model itself is one component among several.</p>
+<p>If several of these questions made you uneasy, that is worth paying attention to before more budget goes in. The full guide at <a href="https://foundry-5.com/services/machine-learning-development-services">machine learning development services in London</a> covers the pipeline, evaluation, serving and drift monitoring that turn a promising result into a system that keeps working.</p></main><footer>Published by <a href="https://foundry-5.com/">Foundry 5</a></footer></body></html>
